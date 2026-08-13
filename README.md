@@ -30,7 +30,7 @@ A simple C program that calculates an electricity bill based on the number of el
 Enter electricity units consumed: 250
 
 Electricity Units : 250.00
-Total Bill        : Rs. 550.00
+Total Bill        : Rs. 450.00
 
 ## How to Run
 
