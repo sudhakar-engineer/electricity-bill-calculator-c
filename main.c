@@ -2,6 +2,7 @@
 
 int main() {
     float units, bill = 0;
+    float firstSlab = 0, secondSlab = 0, thirdSlab = 0, fourthSlab = 0;
 
     printf("Enter electricity units consumed: ");
     scanf("%f", &units);
@@ -12,27 +13,43 @@ int main() {
         return 1;
     }
 
-    // Slab-based bill calculation
+    // Slab-wise bill calculation
     if (units <= 100) {
-        bill = units * 1;
+        firstSlab = units * 1;
+        bill = firstSlab;
     }
     else if (units <= 200) {
-        bill = (100 * 1) + ((units - 100) * 2);
+        firstSlab = 100 * 1;
+        secondSlab = (units - 100) * 2;
+        bill = firstSlab + secondSlab;
     }
     else if (units <= 300) {
-        bill = (100 * 1) + (100 * 2) + ((units - 200) * 3);
+        firstSlab = 100 * 1;
+        secondSlab = 100 * 2;
+        thirdSlab = (units - 200) * 3;
+        bill = firstSlab + secondSlab + thirdSlab;
     }
     else {
-        bill = (100 * 1) + (100 * 2) + (100 * 3)
-             + ((units - 300) * 5);
+        firstSlab = 100 * 1;
+        secondSlab = 100 * 2;
+        thirdSlab = 100 * 3;
+        fourthSlab = (units - 300) * 5;
+        bill = firstSlab + secondSlab + thirdSlab + fourthSlab;
     }
 
     printf("\n================================\n");
-    printf("     ELECTRICITY BILL\n");
+    printf("        ELECTRICITY BILL\n");
     printf("================================\n");
 
     printf("\nUnits Consumed : %.0f\n", units);
-    printf("Total Bill     : Rs. %.2f\n", bill);
+
+    printf("\nSlab-wise Charges:\n");
+    printf("First 100 units       : Rs. %.2f\n", firstSlab);
+    printf("Next 100 units        : Rs. %.2f\n", secondSlab);
+    printf("Next 100 units        : Rs. %.2f\n", thirdSlab);
+    printf("Above 300 units       : Rs. %.2f\n", fourthSlab);
+
+    printf("\nTotal Bill            : Rs. %.2f\n", bill);
 
     printf("\n================================\n");
 
