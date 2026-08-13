@@ -6,6 +6,13 @@ int main() {
     printf("Enter electricity units consumed: ");
     scanf("%f", &units);
 
+    // Input validation
+    if (units < 0) {
+        printf("\nInvalid input! Units cannot be negative.\n");
+        return 1;
+    }
+
+    // Slab-based bill calculation
     if (units <= 100) {
         bill = units * 1;
     }
@@ -20,7 +27,14 @@ int main() {
              + ((units - 300) * 5);
     }
 
-    printf("\nElectricity Units : %.2f", units);
-    printf("\nTotal Bill        : Rs. %.2f\n", bill);
+    printf("\n================================\n");
+    printf("     ELECTRICITY BILL\n");
+    printf("================================\n");
+
+    printf("\nUnits Consumed : %.0f\n", units);
+    printf("Total Bill     : Rs. %.2f\n", bill);
+
+    printf("\n================================\n");
 
     return 0;
+}
